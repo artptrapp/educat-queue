@@ -42,13 +42,13 @@ const QueuePage = () => {
       query = query.where('environment', '==', selectedEnvironment)
     }
     
-    const startAt = snapshots.length ? snapshots[snapshots.length - 1] : null
-    console.log(startAt)
-    if (startAt) {
-      query = query.startAfter(startAt)
-    }
+    // const startAt = snapshots.length ? snapshots[snapshots.length - 1] : null
+    // console.log(startAt)
+    // if (startAt) {
+    //   query = query.startAfter(startAt)
+    // }
 
-    return query.limit(5)
+    return query// .limit(5)
   }
 
   const fetchItems = useCallback(async () => {
@@ -147,7 +147,7 @@ const QueuePage = () => {
                 !loading && items.length == 0 && <h2 style={{ margin: 0 }}>Nenhuma ocorrência encontrada</h2>
               }
               {renderItems()}
-              <p style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={() => fetchItems()}>Carregar mais itens</p>
+              {/* <p style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={() => fetchItems()}>Carregar mais itens</p> */}
             </QueueList>
           </QueueItemsContainer>
         )
